@@ -8,3 +8,6 @@
  .mhover:hover{
     background-color: rgb(50, 213, 102) !important;
  }
+ body{
+    background-color: black;
+ }

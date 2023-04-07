@@ -17,6 +17,7 @@
     font-size: 55px;
     top: 80px;
     left: 25px;
+    color: #868585;
 }
 
 .main h1 span{
@@ -30,6 +31,7 @@
     position: relative;
     top: 125px;
     left: 25px;
+    color:#fff
 }
 
 .main .main-tag .main-btn{
@@ -55,6 +57,7 @@
     /* margin: 300px 0; */
     margin-top: 250px;
     margin-bottom: 100px;
+    color:#fff
 }
 
 .services .service-box{
@@ -92,6 +95,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    color: #fff;
 }
 
 .about .about-image img{
