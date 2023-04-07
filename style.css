@@ -1,3 +1,38 @@
 .nav-color{
     background-color: rgb(161, 237, 247) !important;  
 }
+
+.services{
+    width: 100%;
+    height: auto;
+    margin: 300px 0;
+    /* margin: 35px 0; */
+}
+
+.services .service-box{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.services .service-box .service-card{
+    text-align: center;
+    width: 310px;
+    height: auto;
+    box-shadow: 0 0 8px #089da1;
+    padding: 15px 10px;
+}
+
+.services .service-box .service-card i{
+    color: #089da1;
+    font-size: 45px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.services .service-box .service-card h3{
+    margin-bottom: 10px;
+}
