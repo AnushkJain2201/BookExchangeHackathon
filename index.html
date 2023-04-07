@@ -18,25 +18,115 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container">
+      <div class="container w-75">
         <a class="navbar-brand logo-class" href="#">
             <img src="images/logo.png" alt="logo" height="50 px" width="240 px" >
         </a>
       </div>
+     
       <div class="collapse navbar-collapse  "  id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+         
+      
           <li class="nav-item ">
             <a class="nav-link " aria-current="page" href="#" >About Us</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link " href="#">Contact us</a>
           </li>
-         
+          <li class="nav-item ">
+            <a class="nav-link " aria-current="page" href="Signup-Page-main/index.html" >Sign up</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " data-bs-toggle="modal"  type ="button"data-bs-target="#enroll" >Sign in</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Sign in as</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="button-center">
+            <div>
+              <button class="btn btn-dark mhover"  data-bs-toggle="modal"  data-bs-target="#admin" type="button">Admin</button>
+              <button class="btn btn-dark mhover"  data-bs-toggle="modal"  data-bs-target="#customer" type="button">Customer</button>   
+            </div>
+          </div>         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Button trigger modal -->
 
+<!-- admin -->
+<div class="modal fade" id="admin" tabindex="-1" aria-labelledby="admin" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="admin">Welcome</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3 align-items-center">
+          <form >
+            <label for="username" class="col-form-label">Email</label>
+            <input type="email" id="myemail"class=form-control>
+            <label for="password" class="col-form-label">Password</label>
+            <input type="password" id="mypassword"class=form-control>
+          <div class="col-auto mb-3">
+            <span id="passwordHelpInline" class="form-text">
+              Must be 8-20 characters long special characters allowed.
+            </span>
+          </div>
+          <button type="button" class="btn btn-danger ">Login</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Customer-->
+<div class="modal fade " id="customer" tabindex="-1" aria-labelledby="customer" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="customer">Welcome</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3 align-items-center">
+          <form >
+            <label for="username" class="col-form-label">Email</label>
+            <input type="email" id="myemail"class=form-control>
+            <label for="password" class="col-form-label">Password</label>
+            <input type="password" id="mypassword"class=form-control>
+          <div class="col-auto mb-3">
+            <span id="passwordHelpInline" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+          <button type="button" class="btn btn-danger ">Login</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
       <div class="main">
         <div class="main-tag">
             <h1>Welcome To <br><span>Book Exchange</span></h1>
@@ -46,7 +136,7 @@
     
             <a href="#" class="main-btn" >Learn More</a>
          </div>
-    
+         
          <div class="main-img">
             <img src="./images/Book Store Website Part 1/Book Store Website Part 1/image/table.png">
          </div>
