@@ -4,6 +4,10 @@
     font-family: 'Poppins',sans-serif;
     box-sizing:border-box;
 }
+.inactive{
+    visibility: hidden;
+    opacity: 0;
+}
 .hero{
     width: 100%;
     min-height: 100vh;

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/95319f9c76.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="kuldeep">
+        <div class="hero">
+            <h1>Create an account</h1>
+            <div class="signup-box">
+                <div class="left-box">
+                    <form>
+                        <input type="text" placeholder="Your name" required class="input-box">
+                        <input type="text" placeholder="Username" required class="input-box">
+                        <input type="email" placeholder="Your email id" required class="input-box">
+                        <input type="password" placeholder="Create password" required class="input-box">
+                        <input type="checkbox" id="terms">
+                        <label for="terms">Accept the terms and conditions</label>
+                        <button type="submit">SIGNUP <span> &#x27f6;</span></button>
+                    </form>
+                </div>
+                <div class="right-box">
+                    <a href="" class="fb-link"> <i class="fa-brands fa-facebook"></i> with facebook</a>
+                    <a href="" class="tw-link"> <i class="fa-brands fa-twitter"> </i> Connect with twitter</a>
+                    <a href="" class="g-link"> <i class="fa-brands fa-google"> </i> Connect with google</a>
+                </div>
+            </div>
+            <p class="login-msg">I already have an account <a class="nav-link " data-bs-toggle="modal" type="button"
+                    data-bs-target="#enroll" id="log">log in</a></p>
+        </div>
+    </div>
+
+    <div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sign in as</h1>
+                    <button type="button" class="btn-close redirect" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="button-center">
+                        <div>
+                            <button class="btn btn-dark mhover" data-bs-toggle="modal" data-bs-target="#admin"
+                                type="button">Admin</button>
+                            <button class="btn btn-dark mhover" data-bs-toggle="modal" data-bs-target="#customer"
+                                type="button">Customer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- admin -->
+    <div class="modal fade" id="admin" tabindex="-1" aria-labelledby="admin" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="admin">Welcome</h1>
+                    <button type="button" class="btn-close  redirect" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3 align-items-center">
+                        <form>
+                            <label for="username" class="col-form-label">Email</label>
+                            <input type="email" id="myemail" class=form-control>
+                            <label for="password" class="col-form-label">Password</label>
+                            <input type="password" id="mypassword" class=form-control>
+                            <div class="col-auto mb-3">
+                                <span id="passwordHelpInline" class="form-text">
+                                    Must be 8-20 characters long special characters allowed.
+                                </span>
+                            </div>
+                            <button type="button" class="btn btn-danger ">Login</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- customer -->
+    <div class="modal fade " id="customer" tabindex="-1" aria-labelledby="customer" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="customer">Welcome</h1>
+                    <button type="button" class="btn-close  redirect" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3 align-items-center">
+                        <form>
+                            <label for="username" class="col-form-label">Email</label>
+                            <input type="email" id="myemail" class=form-control>
+                            <label for="password" class="col-form-label">Password</label>
+                            <input type="password" id="mypassword" class=form-control>
+                            <div class="col-auto mb-3">
+                                <span id="passwordHelpInline" class="form-text">
+                                    Must be 8-20 characters long.
+                                </span>
+                            </div>
+                            <button type="button" class="btn btn-danger ">Login</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let x = document.querySelector('.kuldeep');
+        let y = document.querySelector('#log');
+        y.onclick = () => {
+            x.classList.add("inactive");
+        }
+        let z= document.querySelector('.redirect');
+        z.onclick=()=>{
+            x.classList.remove("inactive");
+        }
+    </script>
+</body>
+
+</html>
