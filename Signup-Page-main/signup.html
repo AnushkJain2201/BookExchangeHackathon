@@ -119,7 +119,7 @@
                             <label for="username" class="col-form-label">Your Name</label>
                             <input type="text" id="name" class="form-control">
                             <label for="password" class="col-form-label">Password</label>
-                            <input type="password" id="mypassword" class="form-control">
+                            <input type="password" id="mypassword1" class="form-control">
                             <div class="col-auto mb-3">
                                 <span id="passwordHelpInline" class="form-text">
                                     Must be 8-20 characters long special characters allowed.
@@ -322,6 +322,22 @@ transaction.executeSql(sql,[qty,id],function(){
 
 });
 
+
+
+// -------------- script for signup admin page--------------
+var admName = document.querySelector("#name");
+var admPass = document.querySelector("#mypassword1");
+var admLoginButton = document.querySelector("#admlgin");
+// console.log(admName);
+// console.log(admPass);
+// console.log(admLoginButton);
+
+admLoginButton.addEventListener('click' , () =>{
+    var nameAdmin = admName.value;
+    var passAdmin = admPass.value;
+    console.log(nameAdmin);
+    console.log(passAdmin);
+});
 
     </script>
 </body>
