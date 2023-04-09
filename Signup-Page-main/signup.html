@@ -231,7 +231,7 @@ db.transaction(function(transaction){
 
 //INSERTING DATA INTO TABLE
 
-$("#log2").click(function(){
+$("#").click(function(){
 var ynm=$("#ynm").val();
 var unm=$("#unm").val();
 var email=$("#email").val();
@@ -250,7 +250,7 @@ transaction.executeSql(sql,[ynm,unm,email,pass],function(){
 
 
 //FETCHING OUR RECORD
-$("#").click(function(){
+$("#log2").click(function(){
 loadData();
 })
 //FUNCTION TO LOAD OUR RECORDS
