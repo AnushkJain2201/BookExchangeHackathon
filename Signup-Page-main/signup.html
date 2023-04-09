@@ -119,7 +119,7 @@
                             <label for="username" class="col-form-label">Your Name</label>
                             <input type="text" id="name" class="form-control">
                             <label for="password" class="col-form-label">Password</label>
-                            <input type="password" id="mypassword" class="form-control">
+                            <input type="password" id="adminpassword" class="form-control">
                             <div class="col-auto mb-3">
                                 <span id="passwordHelpInline" class="form-text">
                                     Must be 8-20 characters long special characters allowed.
@@ -185,7 +185,8 @@
         a.onclick = () => {
             x.classList.add("inactive");
         }
-
+       
+        //------------------------------------------------------------------
         var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
 
         $(function(){
