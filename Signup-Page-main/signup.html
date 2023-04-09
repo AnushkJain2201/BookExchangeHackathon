@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+
+<script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css"  href="style.css">
     <script src="https://kit.fontawesome.com/95319f9c76.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -23,10 +26,10 @@
             <div class="signup-box">
                 <div class="left-box">
                     <form>
-                        <input type="text" placeholder="Your name" required class="input-box">
-                        <input type="text" placeholder="Username" required class="input-box">
-                        <input type="email" placeholder="Your email id" required class="input-box">
-                        <input type="password" placeholder="Create password" required class="input-box">
+                        <input type="text" placeholder="Your name" required class="input-box" id="ynm">
+                        <input type="text" placeholder="Username" required class="input-box" id="unm">
+                        <input type="email" placeholder="Your email id" required class="input-box" id="email">
+                        <input type="password" placeholder="Create password" required class="input-box" id="pass">
                         <input type="checkbox" id="terms">
                         <label for="terms">Accept the terms and conditions</label>
                         <button type="submit"><a class="nav-link " data-bs-toggle="modal" type="button"
@@ -67,6 +70,9 @@
             </div>
         </div>
     </div>
+    <!--  -->
+
+    
 
     <!-- admin -->
     <div class="modal fade" id="admin" tabindex="-1" aria-labelledby="admin" aria-hidden="true">
@@ -130,7 +136,8 @@
         </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
+
         let x = document.querySelector('.kuldeep');
         
         let y = document.querySelector('#log');
@@ -147,6 +154,144 @@
         a.onclick = () => {
             x.classList.add("inactive");
         }
+
+        var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
+
+        $(function(){
+
+        loadData();
+
+        //CREATING TABLE STARTS HERE
+
+$("#terms").click(function(){
+db.transaction(function(transaction){
+	var sql="CREATE TABLE items "+
+	"(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
+	"ynm VARCHAR(100) NOT NULL,"+
+	"unm VARCHAR(100) NOT NULL,"+
+	"email VARCHAR(320) NOT NULL,"+
+	"pass VARCHAR(100) NOT NULL)";
+	transaction.executeSql(sql,undefined,function(){
+		alert("Table is created successfully");
+	},function(){
+		// alert("Table is already being created");
+	})
+});
+});
+// CREATING TABLE ENDS HERE
+
+$("#remove").click(function(){
+
+if(!confirm("Are you sure to delete this table?","")) return;;
+db.transaction(function(transaction){
+	var sql="DROP TABLE items";
+	transaction.executeSql(sql,undefined,function(){
+		alert("Table is deleted successfully")
+	},function(transaction,err){
+		alert(err.message);
+	})
+});
+});
+
+//DELETING TABLE ENDS HERE
+//There is no need to create delete table function again as sparsh's function is working fine
+
+
+//INSERTING DATA INTO TABLE
+
+$("#log2").click(function(){
+var ynm=$("#ynm").val();
+var unm=$("#unm").val();
+var email=$("#email").val();
+var pass=$("#pass").val();
+db.transaction(function(transaction){
+var sql="INSERT INTO items(ynm,unm,email,pass) VALUES(?,?,?,?)";
+transaction.executeSql(sql,[ynm,unm,email,pass],function(){
+	alert("New item is added successfully");
+},function(transaction,err){
+	alert(err.message);
+})
+})
+})
+//INSERTING DATA ENDS HERE
+//index insert
+
+
+//FETCHING OUR RECORD
+$("#").click(function(){
+loadData();
+})
+//FUNCTION TO LOAD OUR RECORDS
+function loadData(){
+		$("#itemlist").children().remove();
+	db.transaction(function(transaction){
+		var sql="SELECT * FROM items ORDER BY id DESC";
+		transaction.executeSql(sql,undefined,function(transaction,result){
+if(result.rows.length){
+
+for(var i=0;i<result.rows.length;i++){
+	var row=result.rows.item(i);
+	var item=row.item;
+	var ynm=row.ynm;
+	var unm=row.unm;
+	var email=row.email;
+	var pass=row.pass;
+	// $("#itemlist").append('<tr id="del'+id+'"><td>'+ynm+'</td><td>'+unm+'</td><td id="newqty'+id+'">'+email+'</td><td><a href="#" class="btn btn-danger deleteitem" data-id="'+id+'">Delete</a> <a href="#" class="btn btn-primary updateitem" data-id="'+id+'">Update</a></td></tr>');
+	$("#itemlist").append('<tr><td>' +ynm+ '</td><td>' +unm+'</td><td>'+email+'</td><td>'+pass+'</td></tr>')
+}
+}else{
+	$("#itemlist").append('<tr><td colspan="4" align="center">No Item Found</td></tr>');
+}
+		},function(transaction,err){
+			alert('No table found. Click on "Create Table" to create table now');
+		})
+	})
+
+    //setTimeout was used to execute codes inside it to be loaded after records are loaded/fetched.
+
+setTimeout(function(){
+	$(".deleteitem").click(function(){
+var sure=confirm("Are you sure to delete this item?");
+if(sure===true){
+	var id=$(this).data("id");
+db.transaction(function(transaction){
+var sql="DELETE FROM items where id=?";
+transaction.executeSql(sql,[id],function(){
+	$("#del"+id).fadeOut();
+	alert("Item is deleted successfully");
+},function(transaction,err){
+	alert(err.message);
+})
+});
+}
+})
+
+(".updateitem").click(function(){
+var qty=prompt("Kindly enter new quantity",1);
+if(qty!==null){
+	var id=$(this).data("id");
+db.transaction(function(transaction){
+var sql="UPDATE items SET quantity=? where id=?";
+transaction.executeSql(sql,[qty,id],function(){
+	$("#newqty"+id).html(qty);
+	alert("Item is updated successfully");
+},function(transaction,err){
+	alert(err.message);
+})
+});
+}
+})
+
+},1000);
+}
+//END OF loadData() function
+
+
+
+
+});
+
+
     </script>
 </body>
 
