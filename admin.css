@@ -161,8 +161,8 @@ button{
     color:rgb(0, 0, 0);
 }
  a{
-    margin 2px;
-    padding 2px;
+    margin :2px;
+    padding: 2px;
     font-size: larger;
     font-weight: lighter;
     color: rgb(68, 64, 65);
