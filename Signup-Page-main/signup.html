@@ -38,7 +38,7 @@
                     </form>
                     
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
     var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
     
@@ -51,7 +51,7 @@
     
     //CREATING TABLE STARTS HERE
     
-    $("#create").click(function(){
+    $("#terms").click(function(){
     db.transaction(function(transaction){
         var sql="CREATE TABLE SIGNUP"+
         "(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
@@ -64,8 +64,8 @@
         })
     });
     });
-
-    </script>
+    
+    </script> -->
                 </div>
                 <div class="right-box">
                     <a href="https://www.facebook.com/" class="fb-link"> <i class="fa-brands fa-facebook"></i>With Facebook</a>
@@ -119,13 +119,13 @@
                             <label for="username" class="col-form-label">Your Name</label>
                             <input type="text" id="name" class="form-control">
                             <label for="password" class="col-form-label">Password</label>
-                            <input type="password" id="mypassword" class="form-control">
+                            <input type="password" id="mypassword1" class="form-control">
                             <div class="col-auto mb-3">
                                 <span id="passwordHelpInline" class="form-text">
                                     Must be 8-20 characters long special characters allowed.
                                 </span>
                             </div>
-                            <button type="button" class="btn btn-danger ">Login</button>
+                            <button type="button" class="btn btn-danger " id="admlgin">Login</button>
                         </form>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                                     Must be 8-20 characters long.
                                 </span>
                             </div>
-                            <button type="button" class="btn btn-danger ">Login</button>
+                            <button type="button" class="btn btn-danger " id="custlgin">Login</button>
                         </form>
                     </div>
                 </div>
@@ -186,6 +186,7 @@
             x.classList.add("inactive");
         }
 
+        //============= Database Management Started===============
         var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
 
         $(function(){
@@ -321,6 +322,53 @@ transaction.executeSql(sql,[qty,id],function(){
 
 
 });
+// =========End of DBMS================
+
+
+// -------------- script for signup admin page--------------
+var admName = document.querySelector("#name");
+var admPass = document.querySelector("#mypassword1");
+var admLoginButton = document.querySelector("#admlgin");
+// console.log(admName);
+// console.log(admPass);
+// console.log(admLoginButton);
+var total1="";
+admLoginButton.addEventListener('click' , () =>{
+    var nameAdmin = admName.value;
+    var passAdmin = admPass.value;
+    total1=nameAdmin+passAdmin;
+    if(total1=="anushk1234"){
+        console.log("you entered correct");
+        open("https://www.google.com/");
+    }
+    else{
+        // console.log("you entered incorrect details");
+        alert("admin details incorrect");
+    }
+    // console.log(nameAdmin+passAdmin);
+    // console.log(passAdmin);
+});
+let str="anushk1234";
+
+// -------------- script for signup customer page--------------
+let custemail=document.querySelector("#myemail");
+let custpw=document.querySelector("#mypassword");
+let custlgin=document.querySelector("#custlgin");
+
+var total2;
+custlgin.addEventListener('click', () => {
+    var nameCust = custemail.value;
+    var passCust = custpw.value;
+    total2=nameCust + passCust ;
+    if(total2=="anushk1234"){
+        console.log("You entered correct");
+        open("https://www.facebook.com/");
+    }
+    else{
+        // console.log("you entered incorrect details");
+        alert("Customer details incorrect");
+    }
+})
 
 
     </script>
