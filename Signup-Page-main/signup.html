@@ -31,7 +31,38 @@
                         <label for="terms">Accept the terms and conditions</label>
                         <button type="submit"><a class="nav-link " data-bs-toggle="modal" type="button"
                             data-bs-target="#enroll" id="log2">SIGNUP</a>  <span> &#x27f6;</span></button>
+                            
                     </form>
+                    
+
+<script type="text/javascript">
+
+    var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
+    
+    
+    $(function(){
+    
+    loadData(); //loading our records
+    
+    
+    
+    //CREATING TABLE STARTS HERE
+    
+    $("#create").click(function(){
+    db.transaction(function(transaction){
+        var sql="CREATE TABLE SIGNUP"+
+        "(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
+        "Name VARCHAR(50) NOT NULL,"+
+        "Username VARCHAR(55) NOT NULL)";
+        transaction.executeSql(sql,undefined,function(){
+            alert("Table is created successfully");
+        },function(){
+            alert("Table is already being created");
+        })
+    });
+    });
+
+    </script>
                 </div>
                 <div class="right-box">
                     <a href="https://www.facebook.com/" class="fb-link"> <i class="fa-brands fa-facebook"></i>With Facebook</a>
@@ -80,9 +111,9 @@
                     <div class="row g-3 align-items-center">
                         <form>
                             <label for="username" class="col-form-label">Email</label>
-                            <input type="email" id="myemail" class=form-control>
+                            <input type="email" id="myemail" class="form-control">
                             <label for="password" class="col-form-label">Password</label>
-                            <input type="password" id="mypassword" class=form-control>
+                            <input type="password" id="mypassword" class="form-control">
                             <div class="col-auto mb-3">
                                 <span id="passwordHelpInline" class="form-text">
                                     Must be 8-20 characters long special characters allowed.
