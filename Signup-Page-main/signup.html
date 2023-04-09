@@ -331,13 +331,24 @@ var admLoginButton = document.querySelector("#admlgin");
 // console.log(admName);
 // console.log(admPass);
 // console.log(admLoginButton);
-
+var total="";
 admLoginButton.addEventListener('click' , () =>{
     var nameAdmin = admName.value;
     var passAdmin = admPass.value;
-    console.log(nameAdmin);
-    console.log(passAdmin);
+    total=nameAdmin+passAdmin;
+    if(total=="anushk1234"){
+        console.log("you entered correct");
+        open("https://www.google.com/");
+    }
+    else{
+        // console.log("you entered incorrect details");
+        alert("admin details incorrect");
+    }
+    // console.log(nameAdmin+passAdmin);
+    // console.log(passAdmin);
 });
+let str="anushk1234";
+
 
     </script>
 </body>
